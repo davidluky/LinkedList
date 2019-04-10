@@ -1,4 +1,3 @@
-// Alisson David Frangullys     Alisson David Frangullys     Alisson David Frangullys     Alisson David Frangullys     
 // EGRE 246     EGRE 246     EGRE 246     EGRE 246     EGRE 246     EGRE 246     EGRE 246     EGRE 246     EGRE 246     
 // Project # 3     Project # 3     Project # 3     Project # 3     Project # 3     Project # 3     Project # 3     Project # 3     
 // 01/April/2019     01/April/2019     01/April/2019     01/April/2019     01/April/2019     01/April/2019     01/April/2019     01/April/2019     
