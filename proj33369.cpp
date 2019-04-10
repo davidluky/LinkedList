@@ -14,7 +14,7 @@ namespace egre246 {
 		LLNode *mynode = new LLNode();
 		head = mynode;
 		tail = mynode;
-		curr = mynode;
+		//curr = mynode;
 		size = getSize();
 
 	};
@@ -116,8 +116,8 @@ namespace egre246 {
 
 	}; // format: "1,2,3", or returns empty string for empty list
 	LList::value_type& LList::operator[](int i) {
-		int Deus = LList::get();
-		return 	head[Deus].data;
+		int retstring = LList::get();
+		return 	head[retstring].data;
 
 	}; // does not invalidate iterator; result of using an
 
@@ -137,11 +137,11 @@ namespace egre246 {
 	}; // order and current position for iterators are irrelevant    Why doesnt workkkkkkkkkk
 
 */
-	friend std::ostream& operator<<(std::ostream&, const LList& celular) {
-		std::string K;
-		K = celular.toString();
-		if (K.length > 0) {
-			std::cout << "[" << K << "]" << std::endl;
+	 std::ostream& operator<<(std::ostream&, const LList& celular) {
+		std::string Operator;
+		Operator = celular.toString();
+		if (Operator.length != NULL) {
+			std::cout << "[" << Operator << "]" << std::endl;
 
 		}
 		else std::cout << "[]" << std::endl;
