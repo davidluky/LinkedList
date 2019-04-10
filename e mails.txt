@@ -1,0 +1,18 @@
+Pretend that the client who has contracted with you to write the LList software has looked over a prototype
+ using your code and doing so has realized he made a mistake in explaining what he wanted with one of the routines ... 
+so he changes the specs! He wishes to change how the test for equality works (I.e. ==): now two lists are considered 
+equal if they contain the same number of items (nodes) AND all positionally corresponding nodes in the two lists contain
+ the same value. Please change your code accordingly.
+
+
+
+
+
+I have decided to make all of the iterator routines extra credit — they are not required for you to do.
+ If you do them all correctly you can get +2 points extra credit. You must still let me know what you want me to
+ test or not test in your comments at the beginning of your code.
+
+Also - and this is very important - you must include stubs for ALL the routines in your code even if you do
+not implement all of them. The attached program MUST compile and link with no syntax errors (warnings are OK).
+
+Let me know if you have any questions.
