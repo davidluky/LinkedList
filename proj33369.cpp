@@ -18,7 +18,7 @@ namespace egre246 {
 		size = getSize();
 
 	};
-	
+
 	LList::LList(const LList& mylist) {
 		head = mylist.head;
 		tail = mylist.tail;
@@ -29,20 +29,20 @@ namespace egre246 {
 
 	int LList::getSize() const {
 
-		
-			const LLNode *cursor;
-			size_t answer;
-			answer = 0;
-			for (cursor = head; cursor != NULL; cursor = cursor->next)
-				++answer;
-			return answer;
+
+		const LLNode *cursor;
+		size_t answer;
+		answer = 0;
+		for (cursor = head; cursor != NULL; cursor = cursor->next)
+			++answer;
+		return answer;
 	};
 
 	bool LList::isEmpty() const {
 		if (head == NULL) return true;
 		else return false;
 	}
-	
+
 	;
 
 	void LList::clear() {
@@ -53,7 +53,7 @@ namespace egre246 {
 			delete removePtr;
 		}
 
-			
+
 	};     // deallocates all nodes; always invalidates iterator
 	LList::value_type LList::get(int value) const {
 		LLNode *cursor;
@@ -62,43 +62,43 @@ namespace egre246 {
 		for (cursor = head; cursor != NULL; cursor = cursor->next) {
 			if (curr->data == value) return answer;
 		}
-			++answer;
+		++answer;
 
 	};
-  // argument is index of value to return (with 0 as first
-								// item); result of using an out-of-bounds index is
-								// undefined
+	// argument is index of value to return (with 0 as first
+								  // item); result of using an out-of-bounds index is
+								  // undefined
 	void LList::add(const value_type value) {
-			LLNode *insertPtr;
-			insertPtr = new LLNode(value, curr->next);
-			curr->next =insertPtr;
-		
-	
-		}; // adds to end of list; always invalidates iterator
+		LLNode *insertPtr;
+		insertPtr = new LLNode(value, curr->next);
+		curr->next = insertPtr;
+
+
+	}; // adds to end of list; always invalidates iterator
 	void LList::remove(const int value) {
-		LLNode *removePtr;
+		LLNode *current = new LLNode();
+		LLNode *previous = new LLNode();
 		int stop = 0;
-		while (head != NULL) {
-			LLNode *searchPtr;
-			searchPtr = head;
-			if ((searchPtr->data == value) && (stop == 0)) {
-				removePtr = searchPtr->next;
-				searchPtr->next = removePtr->next;
-				delete removePtr;
+		current = head;
+		while (current != NULL) {
+			previous = current;
+			if ((previous->data == value) && (stop == 0)) {
+				previous->next = current->next;
 				stop = 1;
-			}
-			head = head->next;
-		} 
+			} current = current->next;
+		}
 	};     // argument is index of value to remove (with 0 as first
 								// item); invalidates iterator if item is removed; does
 								// nothing if index is not valid
 	int LList::find(const value_type value) const {
 		LLNode *searchPtr;
-		searchPtr = head; 
+		searchPtr = head;
+		int count = 0;
 		while (searchPtr != NULL) {
 			if (searchPtr->data == value) {
-				return 1;
+				return count;
 			}
+			count = count + 1;
 			searchPtr = searchPtr->next;
 		} return -1;
 	}; // returns index of item found or -1 if item is
@@ -110,29 +110,47 @@ namespace egre246 {
 		searchPtr = head;
 		while (searchPtr != NULL) {
 			mystring = searchPtr->data;
-				std::cout << mystring << ",";
+			std::cout << mystring << ",";
 			searchPtr = searchPtr->next;
-		} return "]";
-		
-	}; // format: "1,2,3", or returns empty string for empty list
-	LList::value_type& operator[](int i); // does not invalidate iterator; result of using an
-								   // out-of-bounds index is undefined; index 0 is first item
-	LList::LList& operator=(LList&);      // lhs iterator is set to off list
-	bool operator==(const LList&); // order and current position for iterators are irrelevant
+		};
 
-	
-	friend std::ostream& operator<<(std::ostream&, const LList&);
+	}; // format: "1,2,3", or returns empty string for empty list
+	LList::value_type& LList::operator[](int i) {
+		int Deus = LList::get();
+		return 	head[Deus].data;
+
+	}; // does not invalidate iterator; result of using an
+
+
+
+/*								   // out-of-bounds index is undefined; index 0 is first item
+	LList::LList& operator=(LList&);      // lhs iterator is set to off list
+	bool LList::operator==(const LList&) {
+		while (searchPtr != NULL) {
+			if (searchPtr->data == value) {
+				return count;
+			}
+			count = count + 1;
+			searchPtr = searchPtr->next;
+		} return -1;
+
+	}; // order and current position for iterators are irrelevant    Why doesnt workkkkkkkkkk
+
+*/
+	friend std::ostream& operator<<(std::ostream&, const LList& celular) {
+		std::string K;
+		K = celular.toString();
+		if (K.length > 0) {
+			std::cout << "[" << K << "]" << std::endl;
+
+		}
+		else std::cout << "[]" << std::endl;
+	};
 	// format: [1,2,3] , or [] for empty string
 
 
 	std::string toString(const LList::value_type& no) {
-		std::string mystring = ("");
-		LList *Alexandre = new LList(no);
-		while (no != NULL) {
-			mystring = (*no).data;
-			std::cout << mystring << ",";
-			no = no->next;
-		} return "]";
-	}; // same format as LList::toString
-	
-}; 
+		return std::to_string(no);
+
+	}
+};
